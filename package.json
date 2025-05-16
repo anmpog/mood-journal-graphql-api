@@ -1,0 +1,21 @@
+{
+  "name": "graphql-server",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "GraphQL server",
+  "main": "index.js",
+  "author": "Anthony Pogliano",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^4.12.1",
+    "graphql": "^16.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  }
+}
