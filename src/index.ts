@@ -1,15 +1,15 @@
 import { ApolloServer } from '@apollo/server'
 import { startStandaloneServer } from '@apollo/server/standalone'
-import { typeDefs } from './schema.js'
-import { resolvers } from './resolvers.js'
+// import { typeDefs } from './schema.js'
+// import { resolvers } from './resolvers.js'
+import { schema } from './schema.js'
 import { Context, createContext } from './context.js'
 
 const start = async () => {
   // The ApolloServer constructor requires two parameters: your schema
   // definition and your set of resolvers.
   const server = new ApolloServer<Context>({
-    typeDefs,
-    resolvers,
+    schema,
   })
 
   const { url } = await startStandaloneServer(server, {
