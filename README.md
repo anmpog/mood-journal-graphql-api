@@ -1,7 +1,8 @@
 # Environment
 
 ## Variables
-Right now (development) my environment variables are living in a simple `.env` file. Prisma relies on a `DATABASE_URL` that points to a PostgresQL database I am running locally. The connection string stored in the `DATABASE_URL` takes the form of:
+
+Right now (development) my environment variables are living in a simple `.env` file. Prisma relies on a `DATABASE_URL` that points to a PostgresQL database I am running locally. The connection string stored in the `DATABASE_URL` environment variable takes the form of:
 
 ```
 DATABASE_URL="postgresql://<USER>@localhost:5432/<PROJECT_NAME>?schema=public"
@@ -10,6 +11,7 @@ DATABASE_URL="postgresql://<USER>@localhost:5432/<PROJECT_NAME>?schema=public"
 PostgresQL connection strings are detailed [here](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING)
 
 ## Node
+
 I've started banging on this silly thing with node `V22.12.0`.
 
 # Migration Info

@@ -1,23 +1,25 @@
-import { ApolloServer } from '@apollo/server'
-import { startStandaloneServer } from '@apollo/server/standalone'
-// import { typeDefs } from './schema.js'
-// import { resolvers } from './resolvers.js'
-import { schema } from './schema.js'
-import { Context, createContext } from './context.js'
+import { initTRPC } from '@trpc/server'
+import * as trpcExpress from '@trpc/server/adapters/express'
+import express from 'express'
+import { appRouter } from './router.js'
 
-const start = async () => {
-  // The ApolloServer constructor requires two parameters: your schema
-  // definition and your set of resolvers.
-  const server = new ApolloServer<Context>({
-    schema,
+const createContext = ({
+  req,
+  res,
+}: trpcExpress.CreateExpressContextOptions) => ({})
+
+type Context = Awaited<ReturnType<typeof createContext>>
+
+const t = initTRPC.context<Context>().create()
+
+const app = express()
+
+app.use(
+  '/trpc',
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+    createContext,
   })
+)
 
-  const { url } = await startStandaloneServer(server, {
-    context: createContext,
-    listen: { port: 4000 },
-  })
-
-  console.log(`🚀  Server ready at: ${url}`)
-}
-
-start()
+app.listen(4000)
