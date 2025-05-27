@@ -26,7 +26,7 @@
   "scripts": {
     "compile": "tsc",
     "start": "yarn run compile && node ./dist/index.js",
-    "start:dev": "npx tsx watch src/index",
+    "start:dev": "prisma generate && npx tsx watch src/index",
     "clean": "rm -rf dist"
   }
 }
