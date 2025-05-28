@@ -12,7 +12,9 @@
   "dependencies": {
     "@prisma/client": "^6.8.2",
     "@trpc/server": "^11.1.2",
+    "@types/cors": "^2.8.18",
     "@types/express": "^5.0.2",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "prisma": "^6.8.2",
     "tsx": "^4.19.4",
@@ -25,8 +27,8 @@
   },
   "scripts": {
     "compile": "tsc",
-    "start": "yarn run compile && node ./dist/index.js",
-    "start:dev": "prisma generate && npx tsx watch src/index",
+    "start": "yarn run compile && node ./dist/main.js",
+    "start:dev": "prisma generate && npx tsx watch src/main",
     "clean": "rm -rf dist"
   }
 }
